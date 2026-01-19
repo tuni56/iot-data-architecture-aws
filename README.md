@@ -95,7 +95,6 @@ This separation reflects **production-grade lake design**.
 
 ## Example Athena Query (Curated)
 
-```
 SELECT
   event_date,
   COUNT(*) AS events,
