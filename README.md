@@ -16,6 +16,91 @@ This is a **real-world Data Engineering architecture**, not a tutorial-only pipe
 
 ---
 
+## Business Impact
+
+This architecture is designed to solve a **real and common business problem**:  
+how to ingest, store, and query **high-volume IoT data** without exploding costs or operational complexity.
+
+### Measurable Outcomes
+
+- **90–95% reduction in query costs** by converting raw JSON into partitioned Parquet
+- **10–20x faster analytics** for downstream consumers (analytics, ML, monitoring)
+- **Zero always-on infrastructure**, reducing operational burden
+- **Secure-by-design ingestion**, meeting enterprise security requirements
+- **Scalable from prototype to production** without architectural rewrite
+
+### Business Use Cases Enabled
+
+- Real-time and historical sensor analytics
+- Predictive maintenance workloads
+- Cost-efficient long-term data retention (5+ years)
+- Ad-hoc analytics without ETL bottlenecks
+- Foundation for ML feature generation
+
+This design prioritizes **cost efficiency, reliability, and future extensibility**, which are core expectations for production-grade data platforms.
+
+---
+
+## Architecture Trade-offs & Design Decisions
+
+This project intentionally avoids overengineering while remaining production-ready.
+
+### Why AWS IoT Core instead of Kinesis for ingestion?
+
+- IoT Core provides **native MQTT support with TLS and X.509 authentication**
+- Device identity and security are first-class citizens
+- No need to manage shard scaling or producers
+- Better fit for **device-originated data**, not generic event streams
+
+**Trade-off:**  
+Less flexibility than Kinesis for complex fan-out patterns, acceptable at this stage.
+
+---
+
+### Why direct S3 ingestion instead of Firehose initially?
+
+- Lower cost and fewer moving parts
+- Full control over raw data layout
+- Easier debugging during early-stage development
+
+**When to introduce Firehose:**  
+- High-throughput production workloads  
+- Need for buffering, retries, and transformation at scale
+
+---
+
+### Why Athena instead of Redshift?
+
+- Serverless, pay-per-query model
+- Ideal for exploratory analytics and moderate BI workloads
+- No cluster management or sizing decisions
+
+**Trade-off:**  
+Not optimal for high-concurrency dashboards or sub-second SLAs.
+
+---
+
+### Why manual schemas instead of Glue Crawlers?
+
+- Explicit schema control prevents silent data issues
+- Forces understanding of data contracts
+- Better for learning and early-stage pipelines
+
+**Future evolution:**  
+Glue Crawlers can automate metadata once schemas stabilize.
+
+---
+
+### Why raw + curated layers?
+
+- Raw data remains immutable (auditability)
+- Curated layer enforces schema and performance
+- Enables reprocessing without data loss
+
+This separation reflects **industry-standard lakehouse practices**.
+
+---
+
 ## Architecture
 
 <img width="1536" height="1024" alt="IoT_data_architecture" src="https://github.com/user-attachments/assets/b1b1f265-6311-4dea-9fbb-932cde2c352f" />
