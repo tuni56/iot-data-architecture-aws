@@ -1,0 +1,13 @@
+boto3==1.42.30
+botocore==1.42.30
+faker==40.1.2
+jmespath==1.0.1
+numpy==2.4.1
+pandas==2.3.3
+pyarrow==23.0.0
+python-dateutil==2.9.0.post0
+pytz==2025.2
+s3transfer==0.16.0
+six==1.17.0
+tzdata==2025.3
+urllib3==2.6.3
