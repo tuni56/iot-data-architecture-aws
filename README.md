@@ -18,7 +18,7 @@ This is a **real-world Data Engineering architecture**, not a tutorial-only pipe
 
 ## Architecture
 
-![Architecture Diagram]<img width="1536" height="1024" alt="IoT_data_architecture" src="https://github.com/user-attachments/assets/b1b1f265-6311-4dea-9fbb-932cde2c352f" />
+<img width="1536" height="1024" alt="IoT_data_architecture" src="https://github.com/user-attachments/assets/b1b1f265-6311-4dea-9fbb-932cde2c352f" />
 
 
 **High-level flow:**
@@ -95,7 +95,7 @@ This separation reflects **production-grade lake design**.
 
 ## Example Athena Query (Curated)
 
-```sql
+```
 SELECT
   event_date,
   COUNT(*) AS events,
