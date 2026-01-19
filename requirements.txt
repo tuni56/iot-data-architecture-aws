@@ -3,6 +3,7 @@ botocore==1.42.30
 faker==40.1.2
 jmespath==1.0.1
 numpy==2.4.1
+paho-mqtt==2.1.0
 pandas==2.3.3
 pyarrow==23.0.0
 python-dateutil==2.9.0.post0
