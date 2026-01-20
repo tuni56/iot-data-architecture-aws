@@ -113,7 +113,7 @@ This approach highlights **reusable, maintainable, and production-ready Python c
 I am looking for **data engineering opportunities** where I can design **cost-efficient, scalable, and secure data solutions**:
 
 - **Email:** rociomnbaigorria@gmail.com  
-- **LinkedIn:** [linkedin.com/in/rocio-baigorria](https://linkedin.com/in/rociobaigorria)  
+- **LinkedIn:** [linkedin.com/in/rociobaigorria](https://linkedin.com/in/rociobaigorria)  
 - **GitHub:** [View projects](https://github.com/tuni56)  
 
 ---
